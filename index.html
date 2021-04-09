@@ -7,7 +7,6 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="activityContainer"></div>
     <button id="newActBtn">New Activity</button>
     <br />
     <br />
@@ -19,7 +18,58 @@
       <option value="3">3</option>
       <option value="4">4</option>
     </select>
+    <br />
     <button id="showActBtn">Show Activity</button>
+    <br />
+    <br />
+    <h3>Select a category of activities you'd like to view:</h3>
+    <form action="javascript:void(0)" id="typesContainer">
+      <label for="education">Educational</label>
+      <input
+        type="radio"
+        name="activityType"
+        value="Educational"
+        id="education"
+      />
+      <br />
+      <label for="recreational">Recreational</label>
+      <input
+        type="radio"
+        name="activityType"
+        value="Recreational"
+        id="recreational"
+      />
+      <br />
+      <label for="social">Social</label>
+      <input type="radio" name="activityType" value="social" id="social" />
+      <br />
+      <label for="diy">DIY</label>
+      <input type="radio" name="activityType" value="diy" id="diy" />
+      <br />
+      <label for="charity">Charity</label>
+      <input type="radio" name="activityType" value="charity" id="charity" />
+      <br />
+      <label for="cooking">Cooking</label>
+      <input type="radio" name="activityType" value="cooking" id="cooking" />
+      <br />
+      <label for="relaxation">Relaxation</label>
+      <input
+        type="radio"
+        name="activityType"
+        value="relaxation"
+        id="relaxation"
+      />
+      <br />
+      <label for="music">Music</label>
+      <input type="radio" name="activityType" value="music" id="music" />
+      <br />
+      <label for="busywork">Busywork</label>
+      <input type="radio" name="activityType" value="busywork" id="busywork" />
+      <br />
+      <input type="submit" id="submitBtn" value="Submit" />
+    </form>
+
+    <div id="activityContainer"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/app.js"></script>
   </body>
