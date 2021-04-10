@@ -101,6 +101,7 @@ submitBtn.addEventListener("click", selectType);
 
 //bonus 2
 function selectPriceSuccess(res) {
+  console.log(res.data);
   let activities = res.data;
   let activityContainer = document.getElementById("activityContainer");
   let activity = activities.activity;
@@ -129,3 +130,37 @@ function selectPrice() {
 }
 let priceSubmit = document.getElementById("priceSubmit");
 priceSubmit.addEventListener("click", selectPrice);
+
+// //bonus 3
+function accessibilitySuccess(res) {
+  console.log(res.data);
+  let activities = res.data;
+  let activityContainer = document.getElementById("activityContainer");
+  let activity = activities.activity;
+  let accessibility = activities.accessibility;
+  activityContainer.innerHTML = `<h2>An activity at level ${accessibility} is: ${activity}</h2>`;
+}
+
+function accessibilityError(err) {
+  document.getElementById(
+    "activityContainer"
+  ).innerHTML = `<h3>Something went wrong! Please try again</h3>`;
+}
+function accessibilityLevel() {
+  //gets value from the 'price' input
+  let accessibilityLevel = document.getElementById("accessibility").value;
+  axios
+    .request({
+      method: "GET",
+      url: `http://www.boredapi.com/api/activity`,
+      headers: { "Content-Type": "application/json" },
+      params: {
+        minaccessibility: `${accessibilityLevel}`,
+        //?minaccessibility=0&maxaccessibility=0.1
+      },
+    })
+    .then(accessibilitySuccess)
+    .catch(accessibilityError);
+}
+let accessibilitySubmit = document.getElementById("accessibilitySubmit");
+accessibilitySubmit.addEventListener("click", accessibilityLevel);
